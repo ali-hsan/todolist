@@ -30,7 +30,33 @@ body{
     font-weight: 500;
     margin-top: 20px;
     font-size: 20px;
+    position: relative;
     transition: 0.5s;
+
+}
+
+.task-div label{
+    width: 80%;
+    white-space: nowrap;
+    overflow-x: scroll;
+    position:absolute;
+    padding:0;
+    margin-left:5px;
+}
+
+.task-div label::-webkit-scrollbar {
+    height: 4px;
+}
+
+.task-div label::-webkit-scrollbar-track {
+    background: #510a32;
+    border-radius: 2px;
+}
+
+.task-div label::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #ee4540;
+    height: 5px;
 }
 
 .task-div:hover{
