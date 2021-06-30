@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '////////////////'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///todo.db').replace("://"
+                                                                                                           , "ql://", 1)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -19,7 +21,7 @@ class Task(db.Model):
         return f'<{self.text}>'
 
 
-# db.create_all()
+db.create_all()
 
 
 @app.route('/', methods=['GET', 'POST'])
