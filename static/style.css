@@ -49,7 +49,7 @@ body{
 }
 
 .task-div label::-webkit-scrollbar-track {
-    background: transparent;
+    background: #510a32;
     border-radius: 2px;
 }
 
